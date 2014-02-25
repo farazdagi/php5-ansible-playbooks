@@ -1,5 +1,9 @@
-[web-servers]
+[webservers]
 10.1.0.42
 
-[db-servers]
+# example remote connection; you can have a special 'devops' user with sudo rights
+# but the most simplest setup is to connect as root.
+# 109.171.61.6 ansible_connection=ssh        ansible_ssh_user=root
+
+[dbservers]
 10.1.0.43
