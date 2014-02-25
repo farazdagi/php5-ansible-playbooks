@@ -1,0 +1,4 @@
+---
+# Main deployment playbook. Deploys whole stack of servers.
+
+- include: webservers.yml
