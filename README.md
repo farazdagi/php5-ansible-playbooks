@@ -1,4 +1,4 @@
-vagrant-digitalocean-php5
+PHP5 Ansible Playbooks
 =========================
 
-Vagrant + DigitalOcean Provider + Ansible = Nginx + php5-fpm + MySQL Development Droplet
+There's hardly a better option than to use Ansible for provisioning your computing nodes.
