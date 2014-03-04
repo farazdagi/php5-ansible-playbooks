@@ -4,6 +4,8 @@
 # example remote connection; you can have a special 'devops' user with sudo rights
 # but the most simplest setup is to connect as root.
 # 109.171.61.6 ansible_connection=ssh        ansible_ssh_user=root
+# or you can use vagrant box
+# 10.2.0.10       ansible_connection=ssh  ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
 
 [dbservers]
 10.1.0.43
