@@ -7,4 +7,5 @@
   roles:
     - common
     - php5-fpm
+    - php-tools
     - nginx

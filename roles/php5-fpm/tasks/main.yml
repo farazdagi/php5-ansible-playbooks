@@ -42,4 +42,5 @@
     - apc.ini
     - memcache.ini
     - xdebug.ini
+    - suhosin.ini
   notify: restart php5-fpm
