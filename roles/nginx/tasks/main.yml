@@ -4,6 +4,11 @@
 - name: install nginx package
   apt: pkg=nginx state=latest
 
+- name: update nginx configuration
+  lineinfile: dest=/etc/nginx/nginx.conf regexp='{{ item.from }}' line='{{ item.to }}'
+  with_items:
+    - {'from': '# server_names_hash_bucket_size', 'to': 'server_names_hash_bucket_size  64;'}
+
 # setup configuration scripts
 - name: create "config-templates" directory for custom nginx configuration templates
   command: /bin/mkdir /etc/nginx/config-templates creates=/etc/nginx/config-templates
