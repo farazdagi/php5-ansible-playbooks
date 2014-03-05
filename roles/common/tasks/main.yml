@@ -11,6 +11,7 @@
     - curl
     - htop
     - unzip
+    - git
 
 #- name: install python libraries
   #pip: name={{ item }}
