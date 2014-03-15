@@ -19,3 +19,15 @@
   with_items:
     - passlib
     - yolk
+
+- name: update /etc/hosts (on vagrant box)
+  lineinfile: dest=/etc/hosts regexp='.*{{ item.hostname }}$' line='{{ item.ip }} {{ item.hostname }}' state=present
+  with_items:
+    - {hostname: "dbserver", ip: "{{ development_db_server }}"}
+  when: is_vagrant is defined
+
+- name: update /etc/hosts (on production)
+  lineinfile: dest=/etc/hosts regexp='.*{{ item.hostname }}$' line='{{ item.ip }} {{ item.hostname }}' state=present
+  with_items:
+    - {hostname: "dbserver", ip: "{{ production_db_server }}"}
+  when: is_vagrant is not defined
