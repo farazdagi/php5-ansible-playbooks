@@ -2,7 +2,7 @@
 # Web-serving VMs deployment playbook.
 
 - name: configure HTTP server nodes
-  hosts: all
+  hosts: webservers
   sudo: yes
   roles:
     - common

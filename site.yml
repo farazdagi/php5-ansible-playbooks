@@ -1,4 +1,5 @@
 ---
 # Main deployment playbook. Deploys whole stack of servers.
 
-- include: webservers.yml
+- include: site.webservers.yml
+- include: site.dbservers.yml
