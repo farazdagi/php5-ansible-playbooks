@@ -1,5 +1,4 @@
 ---
 # Variables listed here are applicable to all host groups
 
-server_hostname: default
-server_doc_root: /usr/share/nginx/www
+foo: bar
