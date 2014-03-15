@@ -1,0 +1,32 @@
+---
+
+mysql_pkgs:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+  - python-selinux
+
+mysql_service: mysql
+mysql_conf_dir: /etc/mysql/
+
+mysql_port: 3306
+mysql_bind_address: '0.0.0.0'
+mysql_root_db_pass: WksdfISLkuK
+
+mysql_db:
+  - name: testdb
+    replicate: no
+  #- name: bar
+    #replicate: no
+
+mysql_users:
+  - name: testuser
+    pass: foobar
+    priv: "*.*:ALL"
+
+mysql_repl_user:
+  - name: repl
+    pass: foobar
+
+mysql_repl_role: master
+mysql_db_id: 7
