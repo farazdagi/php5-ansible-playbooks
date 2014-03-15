@@ -12,9 +12,10 @@
     - htop
     - unzip
     - git
+    - python-pip
 
-#- name: install python libraries
-  #pip: name={{ item }}
-  #with_items:
-    #- pil
-    #- yolk
+- name: install python libraries
+  pip: name={{ item }}
+  with_items:
+    - passlib
+    - yolk
