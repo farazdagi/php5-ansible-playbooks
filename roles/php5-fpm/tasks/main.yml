@@ -29,12 +29,15 @@
 - name: setup default site
   template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf owner=root group=root mode=0644
 
-- name: patching php.ini settings
-  lineinfile: dest=/etc/php5/fpm/php.ini regexp='^{{ item.from }}' line='{{ item.to }}'
-  with_items:
-    - {'from': 'html_errors =', 'to': 'html_errors = On'}
-    - {'from': 'max_execution_time =', 'to': 'max_execution_time = 300'}
+- name: copy over php.ini settings file (on vagrant box)
+  copy: src=php.development.ini dest=/etc/php5/fpm/php.ini
   notify: restart php5-fpm
+  when: is_vagrant is defined
+
+- name: copy over php.ini settings file (on production box)
+  copy: src=php.production.ini dest=/etc/php5/fpm/php.ini
+  notify: restart php5-fpm
+  when: is_vagrant is not defined
 
 - name: configure php5-fpm extensions (copy custom configuration)
   copy: src={{ item }} dest=/etc/php5/fpm/conf.d/{{ item }} owner=root group=root mode=0644
