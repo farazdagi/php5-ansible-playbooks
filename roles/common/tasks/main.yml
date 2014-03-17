@@ -28,13 +28,6 @@
     - git
     - python-pip
     - nodejs
-    - npm
-
-- name: install python libraries
-  pip: name={{ item }}
-  with_items:
-    - passlib
-    - yolk
 
 - name: fix issue with NodeJS and self-signed certificates
   command: npm config set ca ""
@@ -43,6 +36,12 @@
   npm: name={{ item }} state=present global=yes
   with_items:
     - less
+
+- name: install python libraries
+  pip: name={{ item }}
+  with_items:
+    - passlib
+    - yolk
 
 - name: update /etc/hosts (on vagrant box)
   lineinfile: dest=/etc/hosts regexp='.*{{ item.hostname }}$' line='{{ item.ip }} {{ item.hostname }}' state=present
