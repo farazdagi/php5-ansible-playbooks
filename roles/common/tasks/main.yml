@@ -24,6 +24,7 @@
     - wget
     - curl
     - htop
+    - cron
     - unzip
     - git
     - python-pip
