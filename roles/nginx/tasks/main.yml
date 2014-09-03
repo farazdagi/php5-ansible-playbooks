@@ -32,6 +32,13 @@
     - dummy.key
   notify: restart nginx
 
-- name: copy default site configuration and restart nginx
-  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
-  notify: restart nginx
+- name: remove default nginx virtualhost configuration (each application has to configure its own virtualhost)
+  file: path=/etc/nginx/{{ item }} state=absent
+  with_items:
+    - conf.d/default.conf
+    - sites-available/default
+
+#- name: copy default site configuration and restart nginx
+#  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+#  notify: restart nginx
+
